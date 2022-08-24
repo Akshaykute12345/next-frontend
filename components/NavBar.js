@@ -1,10 +1,17 @@
 import React from "react";
 import Link from "next/link";
+import { destroyCookie } from "nookies";
 import { parseCookies } from "nookies";
+import Router from "next/router";
 
 const NavBar = ({ cart }) => {
   const cookies = parseCookies();
   const jwt = cookies.jwt;
+
+  const logoutHandler = () => {
+    destroyCookie(null, "jwt");
+    Router.push("/login");
+  };
 
   console.log(jwt);
   return (
@@ -13,7 +20,12 @@ const NavBar = ({ cart }) => {
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <Link href="/">
             <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-              <img  style={{backgroundColor:'white'}} className="w-16" src="/logo3.svg" alt="" />
+              <img
+                style={{ backgroundColor: "white" }}
+                className="w-16"
+                src="/logo3.svg"
+                alt=""
+              />
               <span className="ml-3 text-xl">BookMyTrip</span>
             </a>
           </Link>
@@ -41,13 +53,14 @@ const NavBar = ({ cart }) => {
               </a>
             </Link>
           ) : (
-            <Link href="/logout">
-              <a className="mr-5 hover:red">
-                <button className="my-2 text-white bg-indigo-500 border-0 py-1 md:py-2 px-2 md:px-4 focus:outline-none hover:bg-indigo-600 rounded text-sm">
-                  Logout
-                </button>
-              </a>
-            </Link>
+            <a className="mr-5 hover:red">
+              <button
+                onClick={logoutHandler}
+                className="my-2 text-white bg-indigo-500 border-0 py-1 md:py-2 px-2 md:px-4 focus:outline-none hover:bg-indigo-600 rounded text-sm"
+              >
+                Logout
+              </button>
+            </a>
           )}
         </div>
       </header>
