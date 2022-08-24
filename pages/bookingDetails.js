@@ -23,25 +23,25 @@ export default function BookingDetails({booking}) {
           <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
             <p class="leading-relaxed text-base mb-4">Booking-Id</p>
             <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-              {booking.data.id}
+              {booking.data.id ? booking.data.id : ''}
             </h2>
           </div>
           <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
             <p class="leading-relaxed text-base mb-4">Check-In Date</p>
             <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            {booking.data.checkIn_Date}
+            {booking.data.checkIn_Date?booking.data.checkIn_Date:''}
             </h2>
           </div>
           <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
             <p class="leading-relaxed text-base mb-4">Check-Out Date</p>
             <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            {booking.data.checkOut_Date}
+            {booking.data.checkOut_Date?booking.data.checkOut_Date:''}
             </h2>
           </div>
           <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
             <p class="leading-relaxed text-base mb-4">Total Fare</p>
             <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            {booking.data.amount}
+            {booking.data.amount ? booking.data.amount : ''}
             </h2>
           </div>
           <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
@@ -56,7 +56,7 @@ export default function BookingDetails({booking}) {
           <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
             <p class="leading-relaxed text-base mb-4">No. of Rooms Booked</p>
             <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-              {booking.data.rooms_booked}
+              {booking.data.rooms_booked ? booking.data.rooms_booked : ''}
             </h2>
           </div>
         </div>
