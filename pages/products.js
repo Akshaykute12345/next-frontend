@@ -263,8 +263,8 @@ const Products = (props) => {
                         }}
                         className="h-96 rounded m-auto mb-8"
                         src={
-                          
-                          item.attributes.galary.data.attributes.formats.large.url
+                          item.attributes.galary.data.attributes.formats.large
+                            .url
                         }
                       />
                       {/* <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">{item.attributes.category}</h3> */}
@@ -313,9 +313,12 @@ export async function getServerSideProps(ctx) {
     };
 
     console.log("header==>", headers, "jwt==>", jwt);
-    let a = await fetch("https://vast-taiga-41388.herokuapp.com/api/hotels?populate=*", {
-      headers: headers,
-    });
+    let a = await fetch(
+      "https://vast-taiga-41388.herokuapp.com/api/hotels?populate=*",
+      {
+        headers: headers,
+      }
+    );
 
     let products = await a.json();
 
