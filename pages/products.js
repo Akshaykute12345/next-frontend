@@ -263,8 +263,8 @@ const Products = (props) => {
                         }}
                         className="h-96 rounded m-auto mb-8"
                         src={
-                          `https://vast-taiga-41388.herokuapp.com` +
-                          item.attributes.galary.data.attributes.url
+                          
+                          item.attributes.galary.data.attributes.formats.large.url
                         }
                       />
                       {/* <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">{item.attributes.category}</h3> */}
